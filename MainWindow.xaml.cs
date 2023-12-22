@@ -45,8 +45,9 @@ namespace AMSnake
         private GameState gameState;
         private bool gameRunning;
         private int boostSpeed = 0;
-        int delay = 100;
+        public int delay = 100;
         private Random random = new Random();
+        GameSettings1 gameSettings1;
 
         public MainWindow()
         {
@@ -54,6 +55,7 @@ namespace AMSnake
             EndGameText.Visibility = Visibility.Hidden;
             gridImages = SetupGrid();
             gameState = new GameState(rows, cols);
+            gameSettings1 = new GameSettings1(this);
         }
 
         private Image[,] SetupGrid()
@@ -112,7 +114,7 @@ namespace AMSnake
                     gameState.ChangeDirection(Direction.Down);
                     break;
                 case Key.Space:
-                    boostSpeed = (boostSpeed == 0) ? GameSettings.BoostSpeed : 0;
+                    boostSpeed = (boostSpeed == 0) ? gameSettings1.Boost : 0;
                     break;
             }
         }
@@ -236,7 +238,7 @@ namespace AMSnake
 
         private void OpenWindow(object sender, RoutedEventArgs e)
         {
-            GameSettings1 gameSettings1 = new GameSettings1(this);
+       
             this.Visibility = Visibility.Hidden;
             gameSettings1.Show();
             WindowState = WindowState.Maximized;

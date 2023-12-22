@@ -12,7 +12,7 @@ namespace AMSnake
         public readonly static ImageSource Food = LoadImage("Food.png");
         public readonly static ImageSource DeadBody = LoadImage("DeadBody.png");
         public readonly static ImageSource DeadHead = LoadImage("DeadHead.png");
-        public readonly static ImageSource Wall = LoadImage("images.jpg");
+        public readonly static ImageSource Wall = LoadImage("Wall.jpg");
 
         private static ImageSource LoadImage(string filename)
         {

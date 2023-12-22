@@ -22,6 +22,8 @@ namespace AMSnake
     {
         MainWindow mainWindow;
         private bool loaded;
+        public int Boost { get; set; }
+
         public int Delay {  get; set; }
 
         public GameSettings1(MainWindow mainWindow)
@@ -49,6 +51,16 @@ namespace AMSnake
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             loaded= true;
+        }
+
+
+        public void BoostSlider_ValueChanged(object sender, RoutedEventArgs e)
+        {
+            if (loaded == true)
+            {
+                BoostValue.Text = BoostSlider.Value.ToString();
+                Boost = (int)BoostSlider.Value;
+            }
         }
     }
 }
